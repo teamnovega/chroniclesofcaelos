@@ -42,33 +42,38 @@ interruptPage = 2;
 ///
 textspd[0] = 1;
 char[0] = "Vegacide:"
-text[0] = "Welcome to the early early access alpha build!" + ZPress;
+text[0] = "Welcome to the [c=255]early early access[/c] alpha build!" + ZPress;
 image[0] = spr_emoteTemplate2;
 image1[0] = spr_emoteTemplate;
+voice[0] = snd_dialog;
 //
 textspd[1] = 1;
 char[1] = "Vegacide:"
 text[1] = "...that is obviously early access." + ZPress;
 image[1] = spr_emoteTemplate2;
 image1[1] = spr_emoteTemplate;
+voice[1] = snd_dialog;
 //
 textspd[2] = 1;
 char[2] = "Vegacide:"
 text[2] = "With that said, there are going to be bugs." + ZPress;
 image[2] = spr_emoteTemplate;
 image1[2] = spr_emoteTemplate2;
+voice[2] = snd_dialog;
 //
 textspd[3] = 1;
 char[3] = "Vegacide:"
 text[3] = "If one is found, please explain to me #what happened!" + ZPress;
 image[3] = spr_emoteTemplate;
 image1[3] = spr_emoteTemplate2;
+voice[3] = snd_dialog;
 //
 textspd[4] = 1;
 char[4] = "Vegacide:"
 text[4] = "Thanks for reading. Have fun! -vegacide" + ZPress;
 image[4] = spr_emoteTemplate2;
 image1[4] = spr_emoteTemplate2;
+voice[4] = snd_dialog;
 </string>
           </argument>
         </arguments>
@@ -142,6 +147,7 @@ char[0] = "Vegacide:"
 text[0] = choose(banter1,banter2,banter3,banter4);
 image[0] = spr_emoteTemplate2;
 image1[0] = spr_emoteTemplate;
+voice[0] = snd_dialogFinished;
 </string>
           </argument>
         </arguments>

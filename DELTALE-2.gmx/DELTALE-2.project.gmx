@@ -59,8 +59,8 @@
         <sound>sound\mus_test0</sound>
         <sound>sound\mus_test1</sound>
       </sounds>
-      <sounds name="Array 1 (mus_wtf)">
-        <sound>sound\mus_wtf0</sound>
+      <sounds name="Array 1 (mus_forest)">
+        <sound>sound\mus_forest0</sound>
       </sounds>
     </sounds>
     <sounds name="Effects">
@@ -353,6 +353,7 @@
         <script>scripts\draw_sprite_outlined.gml</script>
         <script>scripts\draw_sprite_shadow.gml</script>
         <script>scripts\draw_sprite_wave.gml</script>
+        <script>scripts\draw_text_colortags.gml</script>
       </scripts>
       <scripts name="String Manipulation">
         <script>scripts\string_split.gml</script>
@@ -382,6 +383,7 @@
         <script>scripts\stick_to.gml</script>
         <script>scripts\stick_to_angle.gml</script>
         <script>scripts\within.gml</script>
+        <script>scripts\lineBreak.gml</script>
       </scripts>
     </scripts>
   </scripts>

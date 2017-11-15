@@ -35,6 +35,7 @@ global.heartWing[2] = spr_UI_bronzeHW;
 global.heartWing[1] = spr_UI_bronzeHW;
 global.heartWing[0] = spr_UI_bronzeHW;
 lastWing = 5;
+lastNHWing = 5;
 for (var i=0; i&lt;array_length_1d(global.heartWing); i++) {
     if (global.heartWing[i] == spr_UI_emptyHW) {
         global.heartWingHP[i] = 0;
@@ -85,7 +86,8 @@ img=0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Thanks to: 
+            <string>/// HEARTWING SYSTEM NOTES
+// Thanks to: 
 // - UnknownEvil,
 // - Jakylgamer,
 // - FrozenFlame,
@@ -107,10 +109,28 @@ img=0;
 ///// Full Design Document for HeartWings here: 
 ///// https://i.imgur.com/s97vPm8.png
 ///// https://i.imgur.com/Pik5guk.png (more info)
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Set the HeartWing Sprites
 
-///////////////////////////////////////////////////////////////////////////// ACTUAL CODE!! VV //////
-
-    // Set the HeartWing Sprites
     for (var i=0; i&lt;array_length_1d(global.heartWing)-1; i++) {
     //
         // If it's not a Hero's HeartWing( since Hero's Heartwings don't disappear )
@@ -136,8 +156,31 @@ img=0;
         }
     //
     }
-    
-    // Last-Wing Calculation
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Last-Wing + Last-NonHHW-Wing Calculation
+
+if (instance_exists(obj_player)) {
+
+    // LAST WING
     // Sort through every heart-wing slot
     for(var i = array_length_1d(global.heartWing)-1; i &gt;= 0; i--) {
     //
@@ -169,6 +212,61 @@ img=0;
     }
     
     
+/////////////////////////////////////
+
+    // Last-NonHHW-Wing Calculation
+    // Sort through every heart-wing slot
+    for(var i = array_length_1d(global.heartWing)-1; i &gt;= 0; i--) {
+    
+        // If it's an empty slot, and there's something to the left of it,
+        // then that must mean it's the last empty one!! (used for pickups)
+        if (global.heartWing[i] == spr_UI_emptyHW)
+        and (global.heartWing[i-1] != spr_UI_emptyHW)
+        and (global.heartWing[i-1] != spr_UI_herosHW)
+        and (global.heartWing[i-1] != spr_UI_herosEmptyHW) {
+            if (global.heartWingHP[i-1] != 0) {
+                lastNHWing = i-1;
+                break;
+            }
+        }
+        
+        else
+        
+        if (global.heartWing[7] != spr_UI_emptyHW)
+        and (global.heartWing[7] != spr_UI_herosEmptyHW) 
+        and (global.heartWing[6] != spr_UI_emptyHW) {
+            lastNHWing = 7;
+            break;
+        }
+    }
+    
+} else {
+    lastWing = 0;
+    lastNHWing = 0;
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Calculate HP + Check For Damage + Animate Low Health Overlay
+
+///////////////////////////////////////////////////////////////////////////// ACTUAL CODE!! VV //////
     
     // getArrayTotal = adds the values in an array, and returns the total
     global.playerHP = getArrayTotal(global.heartWingHP);

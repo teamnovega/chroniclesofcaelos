@@ -25,36 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>voice[0] = snd_dialog;
-audio_play_sound(voice[0],1,false);
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="0">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>if (obj_dialog.text_count = string_length(obj_dialog.text[obj_dialog.text_page])) {
-    // play finished sound
-    audio_stop_sound(voice[0]);
-    audio_play_sound(snd_dialogFinished,0,0);
-    instance_destroy();
-}
+            <string>audio_play_sound(obj_dialog.voice[obj_dialog.voice_page],1,false);
 </string>
           </argument>
         </arguments>

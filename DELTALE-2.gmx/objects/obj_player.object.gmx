@@ -497,23 +497,34 @@ with (obj_heartWingHPController) {
           <argument>
             <kind>1</kind>
             <string>/// Collect Gold HeartWing
+
 with (other) {
     instance_destroy();
 }
+
 with (obj_heartWingHPController) {
-    if (lastWing != 7) {
+    // If there is space
+    if !(lastNHWing &gt;= 7)
+    and (global.heartWing[lastNHWing+1] == spr_UI_emptyHW)
+    and (global.heartWing[lastNHWing+1] != spr_UI_herosEmptyHW) {
+    
         // If the inventory isn't full, then fill it.
-        global.heartWingHP[lastWing+1] = 3;
-        global.heartWing[lastWing+1] = spr_UI_goldHW;
-        index[lastWing+1] = 0;
+        global.heartWingHP[lastNHWing+1] = 3;
+        global.heartWing[lastNHWing+1] = spr_UI_goldHW;
+        index[lastNHWing+1] = 0;
+        
     } else {
         // If it is full, check if the last slot has anything higher-tier.
         
-        // If there's not a hero's heartwing
-        if (global.heartWing[lastWing] != spr_UI_herosHW) {
-            global.heartWingHP[lastWing] = 3;
-            global.heartWing[lastWing] = spr_UI_goldHW;
-            index[lastWing] = 0;
+        // If there's not a gold, or hero one in the last slot, then replace it!
+        if (global.heartWing[lastNHWing] != spr_UI_herosHW)
+        and (global.heartWing[lastNHWing] != spr_UI_herosEmptyHW) {
+            global.heartWingHP[lastNHWing] = 3;
+            global.heartWing[lastNHWing] = spr_UI_goldHW;
+            index[lastNHWing] = 0;
+        } else {
+            // Can't collect HeartWing! Replace sound with "Restricted" sound.
+            audio_play_sound(snd_lowHealth,0,false);
         }
     }
 }
@@ -540,37 +551,35 @@ with (obj_heartWingHPController) {
           <argument>
             <kind>1</kind>
             <string>/// Collect Silver HeartWing
+
 with (other) {
     instance_destroy();
 }
+
 with (obj_heartWingHPController) {
-    if (lastWing != 7) {
+    // If there is space
+    if !(lastNHWing &gt;= 7)
+    and (global.heartWing[lastNHWing+1] == spr_UI_emptyHW)
+    and (global.heartWing[lastNHWing+1] != spr_UI_herosEmptyHW) {
+    
         // If the inventory isn't full, then fill it.
-        global.heartWingHP[lastWing+1] = 2;
-        global.heartWing[lastWing+1] = spr_UI_silverHW;
-        index[lastWing+1] = 0;
+        global.heartWingHP[lastNHWing+1] = 2;
+        global.heartWing[lastNHWing+1] = spr_UI_silverHW;
+        index[lastNHWing+1] = 0;
+        
     } else {
         // If it is full, check if the last slot has anything higher-tier.
         
-        // If there's not a gold one
-        if (global.heartWing[lastWing] != spr_UI_goldHW) {
-            global.heartWingHP[lastWing] = 2;
-            global.heartWing[lastWing] = spr_UI_silverHW;
-            index[lastWing] = 0;
-        }
-        
-        // If there's not a Hero's HeartWing slot
-        if (global.heartWing[lastWing] != spr_UI_herosHW) {
-            global.heartWingHP[lastWing] = 2;
-            global.heartWing[lastWing] = spr_UI_silverHW;
-            index[lastWing] = 0;
-        }
-        
-        // If there's not an empty Hero's HeartWing slot
-        if (global.heartWing[lastWing] != spr_UI_herosEmptyHW) {
-            global.heartWingHP[lastWing] = 2;
-            global.heartWing[lastWing] = spr_UI_silverHW;
-            index[lastWing] = 0;
+        // If there's not a gold, or hero one in the last slot, then replace it!
+        if (global.heartWing[lastNHWing] != spr_UI_goldHW)
+        and (global.heartWing[lastNHWing] != spr_UI_herosHW)
+        and (global.heartWing[lastNHWing] != spr_UI_herosEmptyHW) {
+            global.heartWingHP[lastNHWing] = 2;
+            global.heartWing[lastNHWing] = spr_UI_silverHW;
+            index[lastNHWing] = 0;
+        } else {
+            // Can't collect HeartWing! Replace sound with "Restricted" sound.
+            audio_play_sound(snd_lowHealth,0,false);
         }
     }
 }
@@ -597,64 +606,37 @@ with (obj_heartWingHPController) {
           <argument>
             <kind>1</kind>
             <string>/// Collect Bronze HeartWing
+
 with (other) {
     instance_destroy();
 }
+
 with (obj_heartWingHPController) {
     // If there is space
-    if (lastWing != 7) {
-        // If it's not a Hero's HeartWing slot, else skip it
-        if (global.heartWing[lastWing+1] != spr_UI_herosEmptyHW) {
-        
-                // If the inventory isn't full, then fill it.
-                global.heartWingHP[lastWing+1] = 1;
-                global.heartWing[lastWing+1] = spr_UI_bronzeHW;
-                index[lastWing+1] = 0;
-                
-            } else {
-                // If it is a HHW slot then go to the next one
-                // Accommodate for new changes
-                if (lastWing != 6) {
-                    // If the inventory isn't full, then fill it.
-                    global.heartWingHP[lastWing+2] = 1;
-                    global.heartWing[lastWing+2] = spr_UI_bronzeHW;
-                    index[lastWing+2] = 0;
-                    lastWing += 3;
-                }
-            }
-            
-    } else {
+    if !(lastNHWing &gt;= 7)
+    and (global.heartWing[lastNHWing+1] == spr_UI_emptyHW)
+    and (global.heartWing[lastNHWing+1] != spr_UI_herosEmptyHW) {
     
+        // If the inventory isn't full, then fill it.
+        global.heartWingHP[lastNHWing+1] = 1;
+        global.heartWing[lastNHWing+1] = spr_UI_bronzeHW;
+        index[lastNHWing+1] = 0;
+        
+    } else {
         // If it is full, check if the last slot has anything higher-tier.
         
-        // If there's not a silver one
-        if (global.heartWing[lastWing] != spr_UI_silverHW) {
-            global.heartWingHP[lastWing] = 1;
-            global.heartWing[lastWing] = spr_UI_bronzeHW;
-            index[lastWing] = 0;
+        // If there's not a silver, gold, or hero one, then replace it!
+        if (global.heartWing[lastNHWing] != spr_UI_silverHW)
+        and (global.heartWing[lastNHWing] != spr_UI_goldHW)
+        and (global.heartWing[lastNHWing] != spr_UI_herosHW)
+        and (global.heartWing[lastNHWing] != spr_UI_herosEmptyHW) {
+            global.heartWingHP[lastNHWing] = 1;
+            global.heartWing[lastNHWing] = spr_UI_bronzeHW;
+            index[lastNHWing] = 0;
+        } else {
+            // Can't collect HeartWing! Replace sound with "Restricted" sound.
+            audio_play_sound(snd_lowHealth,0,false);
         }
-        
-        // If there's not a gold one
-        if (global.heartWing[lastWing] != spr_UI_goldHW) {
-            global.heartWingHP[lastWing] = 1;
-            global.heartWing[lastWing] = spr_UI_bronzeHW;
-            index[lastWing] = 0;
-        }
-        
-        // If there's not a Hero's HeartWing slot
-        if (global.heartWing[lastWing] != spr_UI_herosHW) {
-            global.heartWingHP[lastWing] = 1;
-            global.heartWing[lastWing] = spr_UI_bronzeHW;
-            index[lastWing] = 0;
-        }
-        
-        // If there's not an empty Hero's HeartWing slot
-        if (global.heartWing[lastWing] != spr_UI_herosEmptyHW) {
-            global.heartWingHP[lastWing] = 1;
-            global.heartWing[lastWing] = spr_UI_bronzeHW;
-            index[lastWing] = 0;
-        }
-        
     }
 }
 </string>

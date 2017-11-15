@@ -32,6 +32,8 @@ text = noone;
 last_space = noone;
 textspd = noone;
 textspd_page = 0;
+voice = noone;
+voice_page = 0;
 char = noone;
 char_page = 0;
 text_visible = "";
@@ -172,9 +174,11 @@ draw_sprite_ext(image1[image1_page],0,xx2right,yy2,1,1,0,c_white,alpha); // Draw
 
 draw_set_alpha(alpha);
 
-draw_text((xx/2)-(xx/4)+margin,((yy-64)+margin)-90,char[char_page]); // Draw the character name
+draw_text_colortags((xx/2)-(xx/4)+margin,((yy-64)+margin)-90,char[char_page]); // Draw the character name
 
-draw_text_ext((xx/2)-(xx/4)+margin,((yy-64)+margin)-48,text_visible,-1,xx-(xx/4)-margin); // Draw the text in the Dialog Box
+// Draw the text in the Dialog Box (with color tags!)
+space = ((xx/2)-(xx/4)+margin) - (xx-(xx/4)-margin);
+draw_text_colortags((xx/2)-(xx/4)+margin,((yy-64)+margin)-48,lineBreak(text_visible,space,99)/*,-1,xx-(xx/4)-margin*/); 
 </string>
           </argument>
         </arguments>

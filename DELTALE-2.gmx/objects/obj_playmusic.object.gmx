@@ -31,10 +31,10 @@ layerSelection = 0;
 with(obj_music_player) {
     if (currentlyPlaying == false)
     {
-        scr_music_play(songSelect,layerSelect,1,1,0.6);
+        scr_music_fadein_play(songSelect,layerSelect,1,true,3)
     } else {
         scr_music_fadeout(3);
-        scr_music_fadein_play(songSelect,layerSelect,1,false,3)
+        scr_music_fadein_play(songSelect,layerSelect,1,true,3)
     }
 }
 </string>

@@ -17,7 +17,7 @@
 song[0,0] = mus_test0;
 song[0,1] = mus_test1;
 
-song[1,0] = mus_wtf0;
+song[1,0] = mus_forest0;
 
 song[2,0] = mus_menu;
 
