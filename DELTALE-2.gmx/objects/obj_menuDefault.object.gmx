@@ -118,15 +118,15 @@ if (scr_cancelKey()) {
             <string>display_set_gui_size(640,360);
 draw_set_font(fnt_dialog);
 draw_set_halign(fa_center);
-draw_set_valign(fa_top);
+draw_set_valign(fa_middle);
 draw_set_colour(c_white); //Scarlet
 
 var m;
 for (m=0; m&lt;array_length_1d(menu); m++) {
-    draw_text(320,180+(m*space),string(menu[m]));
+    draw_text(320,196+(m*space),string(menu[m]));
 }
 
-draw_sprite(spr_selectArrow, subimg, 250, 190+(menuOption*space));
+draw_sprite(spr_selectArrow, subimg, 250, 196+(menuOption*space));
 </string>
           </argument>
         </arguments>

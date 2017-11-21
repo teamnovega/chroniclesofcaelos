@@ -8,19 +8,19 @@ var newYear = date_create_datetime(currentYear,1,1,0,0,0);
 //
 switch (holiday) {
 
-    case halloween:
+    case 'halloween':
             if (date_is_today(halloween)) {
                 return true;
             } else {return false;}
         break;
 
-    case christmas:
+    case 'christmas':
             if (date_is_today(christmas)) {
                 return true;
             } else {return false;}
         break;
 
-    case newYear:
+    case 'newYear':
             if (date_is_today(newYear)) {
                 return true;
             } else {return false;}

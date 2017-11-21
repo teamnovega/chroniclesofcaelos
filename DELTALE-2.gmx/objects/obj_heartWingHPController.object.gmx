@@ -306,8 +306,10 @@ if (instance_exists(obj_player)) {
     if (audio_is_playing(snd_lowHealth)) {
         exit;
     } else {
-        // Check for low health
-        scr_check_lowHealth();
+        if (instance_exists(obj_player)) {
+            // Check for low health
+            scr_check_lowHealth();
+        }
     }
 </string>
           </argument>

@@ -8,6 +8,32 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>image_xscale = 2;
+image_yscale = 2;
+image_alpha = 0;
+destroy = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -27,14 +53,45 @@
             <kind>1</kind>
             <string>scr_get_gamepad_input(0);
 
+y = Wave(ystart+4,ystart-4,10,0);
+
 if (jumpKey) {
-    audio_play_sound(snd_menuScroll,0,false);
-    room_goto(rm_options);
+    destroy = 1;
 }
 
 if (scr_cancelKey()) {
-    audio_play_sound(snd_menuScroll,0,false);
-    room_goto(rm_options);
+    destroy = 1;
+}
+
+// Entrance Tweening
+if (image_xscale &gt; 1) {
+    image_xscale = smooth_approach(image_xscale,1,0.1);
+}
+if (image_yscale &gt; 1) {
+    image_yscale = smooth_approach(image_yscale,1,0.1);
+}
+
+if (image_alpha &lt; 1) {
+    image_alpha = smooth_approach(image_alpha,1,0.1);
+}
+
+// Polishing / Exit Tweening
+if (destroy == 1) {
+
+    if (image_xscale &lt; 2) {
+        image_xscale = smooth_approach(image_xscale,2,0.2);
+    }
+    if (image_yscale &lt; 2) {
+        image_yscale = smooth_approach(image_yscale,2,0.2);
+    }
+
+    if (image_alpha &gt; 0) {
+        image_alpha = smooth_approach(image_alpha,-1,0.2);
+    }
+    if (image_alpha &lt;= 0) {
+        audio_play_sound(snd_menuScroll,0,false);
+        room_goto(rm_options);
+    }
 }
 </string>
           </argument>

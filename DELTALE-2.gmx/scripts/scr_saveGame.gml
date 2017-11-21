@@ -13,7 +13,7 @@ with (obj_playerStats) {
     playerprefs_set("save_exists_"+string(savefile), 1);
     
     // Player variables
-    playerprefs_set("room_"+string(savefile),global.savedRoom);
+    playerprefs_set("room_"+string(savefile),global.previousRoom);
     
     if (instance_exists(obj_savePoint)) {
         savepoint = instance_nearest(global.savePointX, global.savePointY, obj_savePoint);
@@ -66,6 +66,19 @@ with (obj_playerStats) {
             playerprefs_set("hwhp8_"+string(savefile), global.heartWingHP[7]);
             playerprefs_set("hwindex8_"+string(savefile), index[7]);
         
+        // Automatically save extra HeartWing slots
+        if (array_length_1d(global.heartWing)-1 >= 8) {
+            for (i=8; i>=array_length_1d(global.heartWing)-1; i++) {
+                var hwi = "heartwing"+string(i+1)+"_"+string(savefile);
+                var hwhpi = "hwhp"+string(i+1)+"_"+string(savefile);
+                var hwini = "hwindex"+string(i+1)+"_"+string(savefile);
+    
+                playerprefs_set(hwi, sprite_get_name(global.heartWing[i]));
+                    playerprefs_set(hwhpi, global.heartWingHP[i]);
+                    playerprefs_set(hwini, index[i]);
+            }
+        }
+            
         playerprefs_set("hp_"+string(savefile),global.playerHP);
     }
     

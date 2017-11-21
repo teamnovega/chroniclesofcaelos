@@ -26,14 +26,14 @@
           <argument>
             <kind>1</kind>
             <string>if (room == rm_menu) {
-    image_xscale = 0.1;
-    image_yscale = 1;
+    image_xscale = 1;
+    image_yscale = 0.1;
     image_alpha = 0;
 } else
 if (room == rm_options) {
     image_xscale = 1;
     image_yscale = 1;
-    image_alpha = 1;
+    image_alpha = 0.9;
 }
 </string>
           </argument>
@@ -57,21 +57,21 @@ if (room == rm_options) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (room == rm_menu) {
+            <string>if (room == rm_menu)
+or (room == rm_credits) {
     if (image_xscale &lt;&gt; 1) {
         image_xscale = smooth_approach(image_xscale,1,0.1);
     }
     if (image_yscale &lt;&gt; 1) {
         image_yscale = smooth_approach(image_yscale,1,0.1);
     }
-    if (image_alpha &lt; 1) {
-        image_alpha = smooth_approach(image_alpha,1,0.1);
+    if (image_alpha &lt; 0.9) {
+        image_alpha = smooth_approach(image_alpha,0.9,0.1);
     }
 } else
 if (room == rm_options)
 or (room == rm_audio)
-or (room == rm_video)
-or (room == rm_credits) {
+or (room == rm_video) {
     if (image_xscale &lt;&gt; 2.17) {
         image_xscale = smooth_approach(image_xscale,2.17,0.1);
     }
@@ -105,7 +105,7 @@ or (room == rm_credits) {
             <string>if (global.optionsPrevious == true) {
     image_xscale = 2.17;
     image_yscale = 0.82;
-    image_alpha = 1;
+    image_alpha = 0.9;
     global.optionsPrevious = false;
 }
 </string>

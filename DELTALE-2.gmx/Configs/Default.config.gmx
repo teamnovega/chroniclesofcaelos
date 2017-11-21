@@ -439,7 +439,7 @@
     <option_shortcircuit>True</option_shortcircuit>
     <option_showcursor>True</option_showcursor>
     <option_showprogress>1</option_showprogress>
-    <option_sizeable>True</option_sizeable>
+    <option_sizeable>False</option_sizeable>
     <option_stayontop>false</option_stayontop>
     <option_sync_vertex>1</option_sync_vertex>
     <option_textureGroup0_border>2</option_textureGroup0_border>
@@ -581,7 +581,7 @@
     <option_windows_runner_finished>Configs\Default\windows\Runner_finish.bmp</option_windows_runner_finished>
     <option_windows_runner_header>Configs\Default\windows\Runner_header.bmp</option_windows_runner_header>
     <option_windows_save_location>0</option_windows_save_location>
-    <option_windows_sleep_margin>1</option_windows_sleep_margin>
+    <option_windows_sleep_margin>10</option_windows_sleep_margin>
     <option_windows_splash_background_colour>#000000</option_windows_splash_background_colour>
     <option_windows_splash_screen>Configs\Default\windows\splash.png</option_windows_splash_screen>
     <option_windows_steam_app_id>0</option_windows_steam_app_id>
@@ -674,7 +674,7 @@
     <option_xbone_title_id></option_xbone_title_id>
   </Options>
   <ConfigConstants>
-    <constants number="32">
+    <constants number="33">
       <constant name="DASH_COST">30</constant>
       <constant name="pStats">obj_playerStats</constant>
       <constant name="pHP">global.playerHP</constant>
@@ -707,6 +707,7 @@
       <constant name="mediumText">0.50</constant>
       <constant name="regularText">1</constant>
       <constant name="IDLE">2</constant>
+      <constant name="MAXHEARTWINGS">32</constant>
     </constants>
   </ConfigConstants>
 </Config>

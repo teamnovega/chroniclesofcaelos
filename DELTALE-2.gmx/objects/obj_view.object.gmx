@@ -116,7 +116,11 @@ view_yview = clamp(view_yview,0,room_height-view_hview)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>viewspd = 1000000000000;
+            <string>if (instance_exists(obj_player)) {
+    x = obj_player.x;
+    y = obj_player.y;
+}
+viewspd = 1000000000000;
 alarm[0]=2;
 var target = global.viewTarget;
 if (view_xview != targetx and view_yview != targety) {

@@ -156,15 +156,18 @@ if (dc == 2) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>display_set_gui_size(640,360);
-draw_self();
+            <string>//display_set_gui_size(640,360);
+//draw_self();
+display_set_gui_size(3840,2160);
+xxw = Wave(1920+24,1920-24,9,2);
+yyw = Wave(942+24,942-24,10,0);
+draw_sprite_ext(spr_logo,0,xxw,yyw,image_xscale,image_yscale,0,c_white,image_alpha);
 
+display_set_gui_size(640,360);
 draw_set_font(fnt_dialog);
 draw_set_halign(fa_center);
-draw_set_colour(make_colour_rgb(118,25,62)); //Scarlet
-draw_set_alpha(image_alpha);
 
-draw_text(320,bbox_bottom+16,pressstart);
+draw_text_shadow(320,bbox_bottom+16,pressstart,c_white,c_black,image_alpha*0.4,image_alpha);
 
 draw_set_alpha(1);
 </string>

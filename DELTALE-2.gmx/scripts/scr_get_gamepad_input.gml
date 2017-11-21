@@ -11,7 +11,7 @@ downKey = keyboard_check(vk_up);
 dashKey = keyboard_check_pressed(vk_shift);
 sneakKey = keyboard_check(vk_control);
 attackKey = keyboard_check_pressed(ord("X"));
-pauseKey = keyboard_check_pressed(ord("C"));
+pauseKey = keyboard_check_pressed(vk_enter);
 jumpKey = keyboard_check_pressed(ord("Z"));
 
 xaxis = (rightKey - leftKey);

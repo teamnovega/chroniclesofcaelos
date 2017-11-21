@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>0</depth>
-  <persistent>0</persistent>
+  <persistent>-1</persistent>
   <parentName>obj_indoorLight</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -102,6 +102,17 @@ if (global.cueFinish) {
     path_end();
     x = xstart-256;
     y = ystart-384;
+}
+
+// Destroy self
+if (room != rm_play)
+and (room != rm_menu)
+and (room != rm_options)
+and (room != rm_audio)
+and (room != rm_video)
+and (room != rm_credits)
+and (room != rm_playFinished) {
+    instance_destroy();
 }
 </string>
           </argument>

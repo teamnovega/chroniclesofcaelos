@@ -265,31 +265,7 @@ if (room != rm_loadingScreen) {
         </arguments>
       </action>
     </event>
-    <event eventtype="9" enumb="34">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>/// Switch between Debug Mode and Regular Mode
-global.debugScreen = !global.debugScreen;
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="9" enumb="13">
+    <event eventtype="9" enumb="121">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -314,6 +290,30 @@ with(obj_music_player)
 }
 audio_play_sound(snd_holdup,1,false);
 }
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="34">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Switch between Debug Mode and Regular Mode
+global.debugScreen = !global.debugScreen;
 </string>
           </argument>
         </arguments>

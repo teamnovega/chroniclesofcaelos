@@ -141,6 +141,7 @@
         <sprite>sprites\spr_slider_fragment</sprite>
         <sprite>sprites\spr_credits</sprite>
         <sprite>sprites\spr_twitter</sprite>
+        <sprite>sprites\spr_logo</sprite>
       </sprites>
     </sprites>
     <sprites name="Enemies">
@@ -244,7 +245,6 @@
       <script>scripts\leftover_clipboard_scripts.gml</script>
       <script>scripts\scr_screen_capture.gml</script>
       <script>scripts\scr_aspectratio.gml</script>
-      <script>scripts\scr_cameramovement.gml</script>
       <script>scripts\scr_chance.gml</script>
       <script>scripts\scr_get_gamepad_input.gml</script>
       <script>scripts\scr_loadGame.gml</script>
@@ -435,9 +435,9 @@
       <object>objects\obj_menuBackground</object>
       <object>objects\obj_menuCliff</object>
       <object>objects\obj_menuSun</object>
+      <object>objects\obj_menuWhiteScreen</object>
       <object>objects\obj_menuTeamNovega</object>
       <object>objects\obj_menuControllerSupport</object>
-      <object>objects\obj_menuWhiteScreen</object>
       <object>objects\obj_menuCutsceneController</object>
       <object>objects\obj_otherMenuController</object>
       <object>objects\obj_menuDefault</object>
@@ -448,6 +448,7 @@
       <object>objects\obj_sunDeactivated</object>
       <object>objects\obj_slider_master</object>
       <object>objects\obj_slider_music</object>
+      <object>objects\obj_playgame</object>
       <object>objects\obj_slider_sfx</object>
       <object>objects\obj_menuCredits</object>
       <object>objects\obj_menuVersionController</object>
@@ -534,9 +535,6 @@
     </objects>
     <objects name="Objects">
       <object>objects\obj_torch</object>
-    </objects>
-    <objects name="Buttons">
-      <object>objects\obj_playgame</object>
     </objects>
     <objects name="Lifeform Parents">
       <object>objects\obj_lifeformGlowing_parent</object>

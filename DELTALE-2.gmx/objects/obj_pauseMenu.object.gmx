@@ -163,11 +163,7 @@ alpha = smooth_approach(alpha, 1, 0.2);
             <kind>1</kind>
             <string>display_set_gui_size(640,360);
 // Draw our pause screen
-shader_set(shd_gaussian_xorDev);
-shader_set_uniform_f(uni_size, 640, 360);
-shader_set_uniform_f(uni_radius, 32);
 draw_background_ext(global.pause_bg,0,0,1,1,0,pause_col,1); 
-shader_reset();
 
 draw_set_colour(c_black);
 draw_set_alpha(0.6);

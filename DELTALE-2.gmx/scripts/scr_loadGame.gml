@@ -55,6 +55,21 @@ with (obj_playerStats) {
         global.heartWing[7] = getSpriteIndex("heartwing8_"+string(savefile));
         global.heartWingHP[7] = playerprefs_get("hwhp8_"+string(savefile));
         index[7] = playerprefs_get("hwindex8_"+string(savefile));
+        
+        if (array_length_1d(global.heartWing)-1 <= 8) {
+        
+                if (array_length_1d(global.heartWing)+1 > MAXHEARTWINGS) {
+                    show_message("WARNING: Save Data is Corrupted. Code ABVMXHWLIM: Have you been trying to hack more heartwings into the game?");
+                    show_message("Will attempt to load save anyway, but expect some weird bugs! (Dancing Snoop Dogg may be one of them.)")
+                }
+                
+                for (i=8; i>=array_length_1d(global.heartWing)-1; i++) {
+                        global.heartWing[i] = getSpriteIndex("heartwing"+string(i+1)+"_"+string(savefile));
+                        global.heartWingHP[i] = playerprefs_get("hwhp"+string(i+1)+"_"+string(savefile));
+                        index[i] = playerprefs_get("hwindex"+string(i+1)+"_"+string(savefile));
+                    }
+                    
+        }
 
     }
     

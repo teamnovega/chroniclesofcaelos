@@ -52,7 +52,6 @@
   </views>
   <instances>
     <instance objName="obj_menuBackground" x="0" y="0" name="inst_53171825" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_menuSun" x="480" y="448" name="inst_6FF73EBD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_menuCliff" x="0" y="0" name="inst_54020A47" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_otherMenuController" x="-32" y="0" name="inst_976239FC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_menuDefault" x="0" y="0" name="inst_C62E744C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
