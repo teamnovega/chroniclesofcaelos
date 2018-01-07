@@ -94,8 +94,8 @@ instance_create(irandom_range(x-32,x+32),irandom_range(y-32,y+32),obj_EXP);
 // another 10^^
 
 // Drop a health pack
-if (scr_chance(0.5)) {
-    instance_create(x+random_range(-4,4),y+random_range(-4,4),obj_bronzeWing);
+if (scr_chance(0.4)) {
+    instance_create(x+random_range(-4,4),y+random_range(-4,4),obj_silverWing);
 }
 </string>
           </argument>
@@ -241,17 +241,19 @@ script_execute(slimeState);
           <argument>
             <kind>1</kind>
             <string>/// Damage the player
-if (slimeState != scr_slime_stall_state and global.isDashing = false)
-{
-    var dir = point_direction(other.x,other.y,x,y)
-    var xdir = lengthdir_x(1,dir)
-    var ydir = lengthdir_y(1,dir)
-    var damage = instance_create(other.x+xdir,other.y+ydir,obj_damageEnemy);
-    damage.damage = attack;
-    damage.creator = id;
-    damage.knockback = 25;
-    slimeState = scr_slime_stall_state;
-    alarm[1] = room_speed;
+if (alarm[4] &lt;= 0) {
+    if (slimeState != scr_slime_stall_state and global.isDashing = false)
+    {
+        var dir = point_direction(other.x,other.y,x,y)
+        var xdir = lengthdir_x(1,dir)
+        var ydir = lengthdir_y(1,dir)
+        var damage = instance_create(other.x+xdir,other.y+ydir,obj_damageEnemy);
+        damage.damage = attack;
+        damage.creator = id;
+        damage.knockback = 25;
+        slimeState = scr_slime_stall_state;
+        alarm[1] = room_speed;
+    }
 }
 </string>
           </argument>
@@ -278,6 +280,12 @@ if (slimeState != scr_slime_stall_state and global.isDashing = false)
     image_index = 0;
     image_speed = 1;
     sprattack = true;
+    with (obj_player) {
+        if (sprattack = false) {
+        sprattack = true;
+        alarm[4] = room_speed/6;
+        }
+    }    
 }
 </string>
           </argument>
@@ -348,6 +356,7 @@ else
    
 showHealth = true;
 alarm[3] = room_speed*5;
+alarm[4] = room_speed;
 </string>
           </argument>
         </arguments>

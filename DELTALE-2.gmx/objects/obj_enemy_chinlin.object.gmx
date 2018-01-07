@@ -105,6 +105,28 @@ if (scr_chance(0.45)) {
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="4">
+      <action>
+        <libid>1</libid>
+        <id>605</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>0</useapplyto>
+        <exetype>0</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>Can't Attack Alarm</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="2" enumb="3">
       <action>
         <libid>1</libid>
@@ -248,17 +270,20 @@ sprite_index = sprite[facing, movement];
           <argument>
             <kind>1</kind>
             <string>/// Damage the player
-if (chnState != scr_chinlin_stall_state and global.isDashing = false)
-{
-    var dir = point_direction(other.x,other.y,x,y)
-    var xdir = lengthdir_x(1,dir)
-    var ydir = lengthdir_y(1,dir)
-    var damage = instance_create(other.x+xdir,other.y+ydir,obj_damageDodge);
-    damage.damage = attack;
-    damage.creator = id;
-    damage.knockback = 25;
-    chnState = scr_chinlin_stall_state;
-    alarm[1] = 60;
+// If I haven't been attacked in the time span of a second, then I'm not hurt!
+if (alarm[4] &lt;= 0) {
+    if (chnState != scr_chinlin_stall_state and global.isDashing = false)
+    {
+        var dir = point_direction(other.x,other.y,x,y)
+        var xdir = lengthdir_x(1,dir)
+        var ydir = lengthdir_y(1,dir)
+        var damage = instance_create(other.x+xdir,other.y+ydir,obj_damageDodge);
+        damage.damage = attack;
+        damage.creator = id;
+        damage.knockback = 25;
+        chnState = scr_chinlin_stall_state;
+        alarm[1] = 60;
+    }
 }
 </string>
           </argument>
@@ -287,6 +312,13 @@ if (sprattack = false) {
     image_index = 0;
     image_speed = 1;
     sprattack = true;
+}
+*/
+with (obj_player) {
+    if (sprattack = false) {
+    sprattack = true;
+    alarm[4] = room_speed/6;
+    }
 }
 </string>
           </argument>
@@ -330,6 +362,7 @@ else
    
 showHealth = true;
 alarm[3] = room_speed*5;
+alarm[4] = room_speed;
 </string>
           </argument>
         </arguments>

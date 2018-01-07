@@ -57,6 +57,13 @@ if (jumpKey) {
         timeline_position = 978;
     }
 }
+
+if (fps &lt;= 60) {
+    if (timeline_running == true) {
+        timeline_speed = (60/fps);
+        show_debug_message(timeline_speed);
+    }
+}
 </string>
           </argument>
         </arguments>

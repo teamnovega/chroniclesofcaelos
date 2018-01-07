@@ -21,7 +21,7 @@
             <kind>1</kind>
             <string>/// Begin Music
 with (obj_music_player) {
-    scr_music_play(2,0,0,false,1);
+    scr_music_play(2,0,0,false,0);
 }
 with (obj_lightController) {
     depth = -9;
@@ -182,7 +182,7 @@ with (obj_menuBackground) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Show Mira
+            <string>/// Show Mika
 </string>
           </argument>
         </arguments>
@@ -234,7 +234,7 @@ with (obj_menuBackground) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Finish Intro / Take down white screen
+            <string>/// Show Gale / Finish Intro / Take down white screen
 
 // Cue Finish
 global.cueFinish = true;

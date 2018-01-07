@@ -116,6 +116,7 @@
     <instance objName="obj_triggerDialogue" x="0" y="1392" name="inst_84360927" locked="0" code="" scaleX="40" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_sign" x="1368" y="696" name="inst_56951C09" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_savePoint" x="864" y="1008" name="inst_24D1DCF5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_playerScale_placeHolder" x="528" y="576" name="inst_1516EE85" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tiletest" x="0" y="0" w="48" h="48" xo="255" yo="0" id="1" name="tile_1" depth="3" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>

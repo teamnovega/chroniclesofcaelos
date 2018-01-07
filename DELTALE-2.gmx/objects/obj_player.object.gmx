@@ -55,6 +55,7 @@ sprite[DOWN, ATTACK] = spr_playerAttackF;
 sprite[LEFT, ATTACK] = spr_playerAttackL;
 //
 attacked = false;
+sprattack = false;
 image_speed = 0;
 image_index = 7;
 scr_get_gamepad_input(0);
@@ -150,11 +151,8 @@ switch (facing) {
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Room Start Execution
-x = new_x;
-y = new_y;
-phy_position_x = new_x;
-phy_position_y = new_y;
+            <string>/// Reset Hurt Overlay
+sprattack = false;
 </string>
           </argument>
         </arguments>
@@ -201,12 +199,12 @@ gamepad_set_vibration(0,0,0);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (global.playerState == scr_attack_state) {
+            <string>/// Reset Animations
+if (global.playerState == scr_attack_state) {
     global.playerState = scr_move_state;
     attacked = false;
     //Reset Animations
     movement = MOVE;
-
 }
 </string>
           </argument>
@@ -300,47 +298,6 @@ depth = (-phy_position_y*2)+10;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/// Get the Player's Input / State
-event_inherited();
-scr_get_gamepad_input(0);
-script_execute(global.playerState, .25, 5, 0);
-
-sprite_index = sprite[facing, movement];
-
-// Check for Death
-if (global.playerHP &lt;= 0) {
-    instance_destroy();
-}
-// Change Pad Colour (PS4 Only)
-if (os_type == os_ps4) {
-    if (global.playerHP &lt;= 2) {
-        if (gamepad_is_connected(0)) {
-            gamepad_set_colour(0,c_red);
-        } else {
-            gamepad_set_colour(0,c_fuchsia);
-        }
-    }
-}
-</string>
-          </argument>
-        </arguments>
-      </action>
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
             <string>/// Optimize the Camera
 if ( r == 10 ) { r=0; optimize_render(); } 
 else r++;
@@ -367,6 +324,47 @@ else r++;
             <string>/// Update the Audio Listener
 audio_set_master_gain(0, global.sfxGain);
 audio_listener_set_position(0, x, y, global.z);
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>/// Get the Player's Input / State
+event_inherited();
+scr_get_gamepad_input(0);
+script_execute(global.playerState, .25, 5, 0);
+
+sprite_index = sprite[facing, movement];
+
+// Check for Death
+if (global.playerHP &lt;= 0) {
+    instance_destroy();
+}
+// Change Pad Colour (PS4 Only)
+if (os_type == os_ps4) {
+    if (global.playerHP &lt;= 2) {
+        if (gamepad_is_connected(0)) {
+            gamepad_set_colour(0,c_red);
+        } else {
+            gamepad_set_colour(0,c_fuchsia);
+        }
+    }
+}
 </string>
           </argument>
         </arguments>
@@ -701,7 +699,10 @@ if (room != rm_loadingScreen) {
 view_xview[0] = x-320;
 view_yview[0] = y-240;
 persistent = true;
-alarm[4] = 1;
+x = new_x;
+y = new_y;
+phy_position_x = new_x;
+phy_position_y = new_y;
 </string>
           </argument>
         </arguments>
@@ -725,7 +726,17 @@ alarm[4] = 1;
           <argument>
             <kind>1</kind>
             <string>y+=global.z;
+
+if (sprattack) {
+d3d_set_fog(true,c_white,0,0);
+}
+
 draw_self();
+
+if (sprattack) {
+d3d_set_fog(false,c_white,0,0);
+}
+
 y-=global.z;
 </string>
           </argument>

@@ -30,6 +30,7 @@ global.viewTarget = obj_player;
 var target = global.viewTarget;
 targetx = x-(view_wview/2);
 targety = y-(view_hview/2);
+vt = 0;
 </string>
           </argument>
         </arguments>
@@ -94,6 +95,32 @@ if (global.previousRoom == rm_pause) {
 }
 view_xview = clamp(view_xview,0,room_width-view_wview)
 view_yview = clamp(view_yview,0,room_height-view_hview)
+
+// View Target
+
+scr_get_gamepad_input(0);
+
+if (switchKey) {
+    /*
+    if (vt &lt; 3) {
+        vt++;
+    } else if (vt == 4) {
+        vt = 0;
+    }
+    */
+    vt = !vt;
+}
+
+switch(vt) {
+    case 0:
+        global.viewTarget = obj_player;
+        global.headshot = 0;
+        break;
+    case 1:
+        global.viewTarget = obj_playerScale_placeHolder;
+        global.headshot = 1;
+        break;
+}
 </string>
           </argument>
         </arguments>

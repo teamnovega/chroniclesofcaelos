@@ -30,7 +30,6 @@ dialog = noone;
 dialog_page = 0;
 xoffset = 0;
 yoffset = -40;
-charDialog = false;
 </string>
           </argument>
         </arguments>

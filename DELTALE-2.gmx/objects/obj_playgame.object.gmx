@@ -167,7 +167,7 @@ display_set_gui_size(640,360);
 draw_set_font(fnt_dialog);
 draw_set_halign(fa_center);
 
-draw_text_shadow(320,bbox_bottom+16,pressstart,c_white,c_black,image_alpha*0.4,image_alpha);
+draw_text_shadow(320,bbox_bottom+32,pressstart,c_white,c_black,image_alpha*0.4,image_alpha);
 
 draw_set_alpha(1);
 </string>

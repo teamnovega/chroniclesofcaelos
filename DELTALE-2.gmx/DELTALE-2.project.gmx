@@ -186,9 +186,6 @@
       <sprite>sprites\spr_UI_bronzeHW</sprite>
       <sprite>sprites\spr_UI_emptyHW</sprite>
       <sprite>sprites\spr_UI_lowHealth</sprite>
-      <sprite>sprites\spr_takethreedamage</sprite>
-      <sprite>sprites\spr_random</sprite>
-      <sprite>sprites\spr_takedamage</sprite>
       <sprite>sprites\spr_UI_herosHW</sprite>
       <sprite>sprites\spr_UI_herosEmptyHW</sprite>
     </sprites>
@@ -197,6 +194,9 @@
     </sprites>
     <sprites name="Dev Sprites">
       <sprite>sprites\sSFXButtons</sprite>
+      <sprite>sprites\spr_takethreedamage</sprite>
+      <sprite>sprites\spr_random</sprite>
+      <sprite>sprites\spr_takedamage</sprite>
       <sprite>sprites\sSFXSlider</sprite>
       <sprite>sprites\spr_sun</sprite>
       <sprite>sprites\spr_notSun</sprite>
@@ -356,6 +356,7 @@
         <script>scripts\draw_text_colortags.gml</script>
       </scripts>
       <scripts name="String Manipulation">
+        <script>scripts\lineBreak.gml</script>
         <script>scripts\string_split.gml</script>
       </scripts>
       <scripts name="Approach Value">
@@ -383,9 +384,9 @@
         <script>scripts\stick_to.gml</script>
         <script>scripts\stick_to_angle.gml</script>
         <script>scripts\within.gml</script>
-        <script>scripts\lineBreak.gml</script>
       </scripts>
     </scripts>
+    <script>scripts\dialogGet.gml</script>
   </scripts>
   <shaders name="shaders">
     <shaders name="Lighting System">

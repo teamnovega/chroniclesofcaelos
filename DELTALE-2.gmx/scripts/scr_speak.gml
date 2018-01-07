@@ -35,9 +35,6 @@ with (obj_speaker) {
                         text_count = string_length(text[text_page]);
                         destroy = 1;
                     }
-                    if (charDialog == true) {
-                        event_perform(ev_other,ev_user0);
-                    }
                 }
                 instance_create(x,y,obj_dialogSound);
             } else {
@@ -62,9 +59,6 @@ with (obj_speaker) {
                     with (dialog) {
                         text_count = string_length(text[text_page]);
                         destroy = 1;
-                    }
-                    if (charDialog == true) {
-                        event_perform(ev_other,ev_user0);
                     }
                 }
                 instance_create(x,y,obj_dialogSound);

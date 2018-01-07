@@ -222,7 +222,7 @@
     <option_changeresolution>false</option_changeresolution>
     <option_closeesc>true</option_closeesc>
     <option_colordepth>0</option_colordepth>
-    <option_display_name>DELTALE</option_display_name>
+    <option_display_name>CHRONICLES OF CAELOS</option_display_name>
     <option_displayerrors>True</option_displayerrors>
     <option_ecma>0</option_ecma>
     <option_facebook_app_display_name></option_facebook_app_display_name>
@@ -491,7 +491,7 @@
     <option_version_description></option_version_description>
     <option_version_major>5</option_version_major>
     <option_version_minor>71</option_version_minor>
-    <option_version_product>DELTALE</option_version_product>
+    <option_version_product>Chronicles of Caelos</option_version_product>
     <option_version_release>82</option_version_release>
     <option_win8_advertising_appid></option_win8_advertising_appid>
     <option_win8_advertising_enable>0</option_win8_advertising_enable>
@@ -576,7 +576,7 @@
     <option_windows_mainor_version>71</option_windows_mainor_version>
     <option_windows_major_version>5</option_windows_major_version>
     <option_windows_nsis_file>Configs\Default\windows\RunnerInstaller.nsi</option_windows_nsis_file>
-    <option_windows_product_info>DELTALE</option_windows_product_info>
+    <option_windows_product_info>Chronicles of Caelos</option_windows_product_info>
     <option_windows_release_version>82</option_windows_release_version>
     <option_windows_runner_finished>Configs\Default\windows\Runner_finish.bmp</option_windows_runner_finished>
     <option_windows_runner_header>Configs\Default\windows\Runner_header.bmp</option_windows_runner_header>

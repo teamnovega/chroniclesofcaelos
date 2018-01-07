@@ -5,6 +5,9 @@ movement = MOVE;
 
 if global.isDashing = true {global.isDashing = false};
 var burntout = 0;
+// I'm assuming I put "gotcha" because I didn't want to 
+// remove the argument everywhere the script is run.. lol 
+// ~vino
 var gotcha = argument0;
 var threshold = 0.5; //Deadzone
 var device = argument2; //Get device - default is 0
@@ -35,6 +38,7 @@ if (global.z>zground) and (jumping == 1) {
 if (jumpKey) {
     var xdir = lengthdir_x(8, facing*90);
     var ydir = lengthdir_y(8, facing*90);
+    // Talking
     var speaker = instance_place(x+xdir,y+ydir,obj_speaker);
     if (speaker != noone) 
         {

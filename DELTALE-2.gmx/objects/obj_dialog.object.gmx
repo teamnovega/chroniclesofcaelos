@@ -161,7 +161,8 @@ display_set_gui_size(guiwidth,guiheight);
 draw_set_font(fnt_dialog);
 // Get the visible text
 // Add to the count
-if (text_count != string_length(text[text_page])) {
+var strlen = string_length(text[text_page]);
+if (text_count != strlen) {
 text_count += textspd[textspd_page];
 }
 text_visible = string_copy(text[text_page], 0, text_count);

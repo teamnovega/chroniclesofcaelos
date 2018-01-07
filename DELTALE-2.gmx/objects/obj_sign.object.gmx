@@ -36,7 +36,7 @@ if (gamepad_is_connected(0)) {
     PressZ = "## // Z //";
 }
 ///
-charDialog = true;
+charDialog = 2;
 interrupt = true;
 interruptPage = 2;
 ///
@@ -130,7 +130,8 @@ if (interrupt == true)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>// Get rid of all of the previous dialogue, replace it with something else
+            <string>/*
+// Get rid of all of the previous dialogue, replace it with something else
 scr_clearArray(textspd);
 scr_clearArray(char);
 scr_clearArray(text);
